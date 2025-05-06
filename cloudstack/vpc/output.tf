@@ -13,7 +13,7 @@ output "vpc_display_text" {
   value       = concat(cloudstack_vpc.this.*.display_text, [""])[0]
 }
 
-output "network_id" {
-  description = "The IDs of the networks in the VPC"
-  value       = concat(cloudstack_network.private.*.id, [""])
-}
+#output "network_id" {
+#  description = "The IDs of the networks in the VPC"
+#  value       = concat(cloudstack_network.private.*.id, [""])
+#}
