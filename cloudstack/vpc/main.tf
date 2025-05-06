@@ -1,6 +1,17 @@
-resource "cloudstack_vpc" "default" {
-  name         = "test-vpc"
-  cidr         = "10.0.0.0/16"
-  vpc_offering = "Default VPC Offering"
-  zone         = "zone-1"
+resource "cloudstack_vpc" "this" {
+  name           = var.name
+  cidr           = var.cidr
+  vpc_offering   = var.vpc_offering
+  zone           = var.zone
+  network_domain = var.network_domain
+  project        = var.project
+
+  tags = merge(
+    {
+      "Name" = format("%s", var.name)
+    },
+    var.tags
+  )
 }
+
+
